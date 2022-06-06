@@ -2,10 +2,10 @@ package com.example.thecocktail1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.app.DownloadManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.View;
+import android.text.Layout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,47 +21,37 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Cocktail extends AppCompatActivity {
+public class ordinaryDrink extends AppCompatActivity {
 
-    TextView txtViewCocktail, strInstructions;
-    ImageView imgView;
+    TextView textViewOrdinary, txtInstructions;
+    ImageView imageView, imageView1, imageView2, imageView3, imageView4, imageView5;
     RequestQueue requestQueue;
+    Layout ss;
 
+    private final String url1 = "https://www.thecocktaildb.com/images/media/drink/ywxwqs1461867097.jpg";
     private static final String url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-    private static final String urlImg = "https://www.thecocktaildb.com/images/media/drink/sih81u1504367097.jpg";
-
-
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cocktail);
+        setContentView(R.layout.activity_ordinary_drink);
 
         requestQueue = Volley.newRequestQueue(this);
         initui();
         jsonObjectRequest();
         imageRequest();
+
     }
 
-    public void openActivityOrdinary(View view){
-        Intent intent = new Intent(this, ordinaryDrink.class);
-        startActivity(intent);
-    }
-
-    public void openActivityRandom(View view){
-        Intent intent = new Intent(this, cocktailrandom.class);
-        startActivity(intent);
-    }
 
     private void initui(){
+        textViewOrdinary = findViewById(R.id.txtViewOrdinary);
+        txtInstructions = findViewById(R.id.txtInstructions);
+        imageView = findViewById(R.id.imgView);
 
-        txtViewCocktail = findViewById(R.id.txtViewCocktail);
-        strInstructions = findViewById(R.id.strInstruction);
-        imgView = findViewById(R.id.imgView);
+
+
+
     }
-
-
-
 
     private void jsonObjectRequest(){
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -77,9 +67,9 @@ public class Cocktail extends AppCompatActivity {
                             for (int i=0; i<size; i++){
                                 JSONObject jsonObject = new JSONObject(jsonArray.get(i).toString());
                                 String strDrink = jsonObject.getString("strDrink");
-                                String strInstruction = jsonObject.getString("strInstructions");
-                                txtViewCocktail.append("Drink: "  + strDrink + " \n");
-                                strInstructions.append("Instructions: " + strInstruction + " \n");
+                                String strInstructions = jsonObject.getString("strInstructions");
+                                textViewOrdinary.append("Drink: " + strDrink + "\n");
+                                txtInstructions.append("Instructions: " + strInstructions + "\n");
                             }
 
 
@@ -99,17 +89,18 @@ public class Cocktail extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
+
     public void imageRequest(){
         ImageRequest imageRequest = new ImageRequest(
-                urlImg,
+                url1,
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap response) {
-                        imgView.setImageBitmap(response);
+                        imageView.setImageBitmap(response);
                     }
                 },
                 200,
-                200,
+                90,
                 null,
                 null,
                 new Response.ErrorListener() {
@@ -121,4 +112,6 @@ public class Cocktail extends AppCompatActivity {
         );
         requestQueue.add(imageRequest);
     }
+
+
 }

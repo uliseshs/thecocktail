@@ -14,35 +14,63 @@
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="20dp">
+
             <ImageView
                 android:id="@+id/imgView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
+                android:layout_marginEnd="57dp"
+                android:layout_toStartOf="@+id/txtViewCocktail"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-
-                >
+                android:paddingRight="15dp">
 
             </ImageView>
 
             <TextView
                 android:id="@+id/txtViewCocktail"
-                android:layout_width="201dp"
-                android:layout_height="128dp"
+                android:layout_width="142dp"
+                android:layout_height="36dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="15dp">
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="5dp">
 
             </TextView>
+
+            <TextView
+                android:id="@+id/strInstruction"
+                android:layout_width="142dp"
+                android:layout_height="149dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="62dp"
+                android:layout_marginEnd="5dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="57dp"
+                android:onClick="openActivityRandom"
+                android:text="Cocktail"></Button>
+
+            <Button
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="5dp"
+                android:text="Ordinary Drink"
+                android:onClick="openActivityOrdinary"></Button>
+
 
 
         </RelativeLayout>

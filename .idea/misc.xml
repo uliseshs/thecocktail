@@ -5,6 +5,10 @@
       <map>
         <entry key="..\:/Users/oksda/AndroidStudioProjects/TheCocktail1/app/src/main/res/layout/activity_cocktail.xml" value="0.33" />
         <entry key="..\:/Users/oksda/AndroidStudioProjects/TheCocktail1/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_cocktail.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/activity_cocktailrandom.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.17325227963525835" />
+        <entry key="app/src/main/res/layout/activity_ordinary_drink.xml" value="0.22" />
       </map>
     </option>
   </component>
